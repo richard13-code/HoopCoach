@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="1080dp"
+    android:height="1920dp"
+    android:viewportWidth="1080"
+    android:viewportHeight="1920">
+
+    <path
+        android:fillColor="#121212"
+        android:pathData="M0,0h1080v1920h-1080z" />
+
+    <path
+        android:fillColor="@color/morado_basket"
+        android:pathData="M0,0 L1080,0 L1080,100 C900,100 700,450 400,250 C200,150 100,350 0,300 Z" />
+</vector>

@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="naranja_basquet">#E23904</color>
+    <color name="azul_basket">#0303B6</color>
+    <color name="morado_basket">#A902C5</color>
+
 </resources>
