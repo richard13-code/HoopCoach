@@ -1,14 +1,23 @@
 <resources>
     <string name="app_name">HoopCoach</string>
     <string name="desc_logo_principal">Logo de la aplicación HoopCoach</string>
+    <string name="desc_logo_flecha">Botón de regreso></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="bienvenido">Bienvenido</string>
     <string name="iniciar_sesion">Iniciar Sesión</string>
     <string name="Usuario_o_correo">Usuario o correo</string>
+    <string name="Correo">Correo</string>"
     <string name="Contraseña">Contraseña</string>
     <string name="Ingresar">Ingresar</string>
+    <string name="Registrar">Registrar</string>"
     <string name="No_cuenta">¿No tienes cuenta? Regístrate</string>
     <string name="Olvidaste_contraseña">¿Olvidaste tu contraseña?</string>
+    <string name="Slogan">\"Eleva tu juego al siguiente nivel\"</string>
+    <string name="CREAR_CUENTA">CREAR CUENTA</string>
+    <string name="INICIAR_SESION">INICIAR SESIÓN</string>
+    <string name="REGISTRARSE">Registrate para continuar </string>
+    <string name="Nombre_Usuario">Nombre de Usuario</string>"
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
