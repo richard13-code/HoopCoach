@@ -11,4 +11,16 @@
 
         <item name="backgroundTint">@color/button_background</item>
     </style>
+
+    <style name="OutlinedButtonStyle" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_marginStart">40dp</item>
+        <item name="android:layout_marginEnd">40dp</item>
+        <item name="android:layout_marginBottom">40dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">30dp</item>
+        <item name="strokeColor">@color/white</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
 </resources>

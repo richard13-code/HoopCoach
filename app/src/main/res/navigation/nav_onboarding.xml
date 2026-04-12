@@ -22,11 +22,32 @@
         android:id="@+id/loginFragment2"
         android:name="com.example.hoopcoach.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment2_to_passwordFragment"
+            app:destination="@id/passwordFragment" />
+        <action
+            android:id="@+id/action_loginFragment2_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.hoopcoach.RegisterFragment"
         android:label="RegisterFragment"
-        tools:layout="@layout/fragment_register"/>
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_personalInfoFragment"
+            app:destination="@id/personalInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalInfoFragment"
+        android:name="com.example.hoopcoach.PersonalInfoFragment"
+        android:label="PersonalInfoFragment"
+        tools:layout="@layout/fragment_personal_info"/>
+    <fragment
+        android:id="@+id/passwordFragment"
+        android:name="com.example.hoopcoach.PasswordFragment"
+        android:label="PasswordFragment"
+        tools:layout="@layout/fragment_password"/>/>
 
 </navigation>

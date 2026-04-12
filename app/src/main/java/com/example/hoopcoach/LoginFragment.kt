@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.hoopcoach.databinding.FragmentLoginBinding
 import androidx.core.widget.addTextChangedListener
+import androidx.navigation.fragment.findNavController
 
 class LoginFragment : Fragment() {
     private var _binding : FragmentLoginBinding? = null
@@ -23,6 +24,13 @@ class LoginFragment : Fragment() {
         // Inflate the layout for this
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         setupValidation()
+        binding.textRecoverPassword.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment2_to_passwordFragment)
+        }
+
+        binding.textRegister.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment2_to_registerFragment)
+        }
         return binding.root
     }
 

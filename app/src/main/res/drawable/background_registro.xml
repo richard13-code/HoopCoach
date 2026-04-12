@@ -10,6 +10,6 @@
         android:pathData="M0,0h1080v1920h-1080z" />
 
     <path
-        android:fillColor="#800080"
+        android:fillColor="@color/morado_basket"
         android:pathData="M0,1920 L1080,1920 L1080,1620 C900,1620 700,1070 400,1370 C200,1520 100,1220 0,1320 Z" />
 </vector>

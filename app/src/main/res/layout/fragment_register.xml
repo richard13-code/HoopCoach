@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="200dp"
+        android:paddingBottom="180dp"
         android:clipToPadding="false"
         tools:context=".RegisterFragment">
 
@@ -74,14 +74,15 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-condensed"
             android:text="@string/REGISTRARSE"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintBottom_toTopOf="@+id/guideline"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ResUser"
@@ -169,25 +170,17 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/ResgistrarButton"
-            style="@style/Widget.Material3.Button.TonalButton"
+            android:id="@+id/btnNextRegister"
+            style="@style/MainButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="@string/Registrar"
-
-            android:textColor="@color/white"
-
-            app:backgroundTint="@color/morado_basket"
-            app:cornerRadius="55dp"
+            android:text="@string/Siguiente"
             app:layout_constraintEnd_toEndOf="parent"
-
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ResPassword"
-            app:strokeColor="@color/white"
-            app:strokeWidth="2dp" />
+            app:layout_constraintTop_toBottomOf="@+id/ResPassword"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
