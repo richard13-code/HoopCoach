@@ -7,11 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.hoopcoach.databinding.FragmentLoginBinding
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.hoopcoach.core.FragmentCommunicator
 
 class LoginFragment : Fragment() {
     private var _binding : FragmentLoginBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel by viewModels<SignInViewModel>() //Enlace con el binding y viewmodel
+
+    private lateinit var communicator: FragmentCommunicator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +29,9 @@ class LoginFragment : Fragment() {
     ): View? {
         // Inflate the layout for this
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        communicator = activity as FragmentCommunicator
         setupValidation()
+        communicator.manageLoader(isVisible = true)
         binding.textRecoverPassword.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment2_to_passwordFragment)
         }
