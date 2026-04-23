@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "162885845985",
+    "project_id": "hoopcoach-e6ea7",
+    "storage_bucket": "hoopcoach-e6ea7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162885845985:android:bb4b3cbebe1016671bc8a0",
+        "android_client_info": {
+          "package_name": "com.example.hoopcoach"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNzL1RBhr4_qErA2cU4tyoVG5LBVqVT-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
