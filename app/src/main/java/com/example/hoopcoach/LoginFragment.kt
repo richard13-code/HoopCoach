@@ -5,11 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.hoopcoach.databinding.FragmentLoginBinding
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.hoopcoach.core.FragmentCommunicator
+import com.example.hoopcoach.core.ResponseService
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {
     private var _binding : FragmentLoginBinding? = null
@@ -31,7 +38,8 @@ class LoginFragment : Fragment() {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         communicator = activity as FragmentCommunicator
         setupValidation()
-        communicator.manageLoader(isVisible = true)
+        setupClickListeners()
+        observeState()
         binding.textRecoverPassword.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment2_to_passwordFragment)
         }
@@ -57,18 +65,46 @@ class LoginFragment : Fragment() {
         val email = binding.emailTiet.text.toString().trim()
         val password = binding.passwordTiet.text.toString().trim()
 
-        val isEmailValid = isValidEmail(email)
-        val isPasswordValid = password.length >= 8
-
-        binding.emailTiet.error = if (email.isNotEmpty() || isEmailValid) null else "Correo inválido"
-        binding.passwordTiet.error = if (password.isNotEmpty() || isPasswordValid) null else "Mínimo 8 caracteres"
-
-        binding.signInButton.isEnabled = email.isNotEmpty() && password.isNotEmpty() && isEmailValid && isPasswordValid
+        binding.emailTiet.error = viewModel.validateEmail(email)
+        binding.passwordTiet.error = viewModel.validatePassword(password)
+        binding.signInButton.isEnabled = viewModel.isLoginFormValid(email, password)
     }
 
-    private fun isValidEmail(email: String): Boolean {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    private fun setupClickListeners() {
+        binding.signInButton.setOnClickListener {
+            val email = binding.emailTiet.text.toString().trim()
+            val password = binding.passwordTiet.text.toString().trim()
+            viewModel.requestLogin(email, password)
+        }
     }
+
+    private fun observeState() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.signInState.collect { state ->
+                    when (state) {
+                        is ResponseService.Loading -> {
+                            communicator.manageLoader(true)
+                            binding.signInButton.isEnabled = false
+                        }
+                        is ResponseService.Success -> {
+                            communicator.manageLoader(false)
+                            Toast.makeText(requireContext(), "¡Sesión Iniciada!", Toast.LENGTH_LONG).show()
+                            // TODO: navegar a MainActivity
+                        }
+                        is ResponseService.Error -> {
+                            communicator.manageLoader(false)
+                            binding.signInButton.isEnabled = true
+                            Snackbar.make(binding.root, state.error,
+                                Snackbar.LENGTH_LONG).show()
+                        }
+                        null -> Unit
+                    }
+                }
+            }
+        }
+    }
+
 
 
 }

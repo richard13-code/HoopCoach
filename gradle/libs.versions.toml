@@ -13,6 +13,7 @@ navigationUiKtx = "2.9.7"
 lottie = "6.7.1"
 firebaseBom = "34.12.0"
 firebase = "4.4.4"
+coroutinesCore = "1.7.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +30,11 @@ lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie"
 firebaseBom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
+coroutines-core = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref="coroutinesCore"}
+coroutines-android = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref="coroutinesCore"}
+
+
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -49,9 +49,11 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.lottie)
     testImplementation(libs.junit)
-    implementation(libs.firebaseBom)
+    implementation(platform(libs.firebaseBom))
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.auth)
+    implementation(libs.coroutines.core)
+    implementation(libs.coroutines.android)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 

@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="180dp"
         android:clipToPadding="false"
-        tools:context=".RegisterFragment">
+        tools:context=".signup.RegisterFragment">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -93,7 +93,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:textColorHint="@color/white"
-            android:hint="@string/Nombre_Usuario"
+            android:hint="@string/Usuario_o_correo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/guideline"
@@ -102,39 +102,12 @@
             app:startIconTint="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ResEmailTiet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:imeOptions="actionNext"
                 android:inputType="text"
-                android:paddingStart="40dp"
-                android:paddingEnd="40dp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ResCorreo"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:textColorHint="@color/white"
-            android:hint="@string/Correo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ResUser"
-            app:startIconDrawable="@drawable/ic_email"
-            app:startIconTint="@color/white"
-            app:endIconTint="@color/white">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/white"
-                android:imeOptions="actionNext"
                 android:paddingStart="40dp"
                 android:paddingEnd="40dp" />
 
@@ -153,12 +126,43 @@
             app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ResCorreo"
+            app:layout_constraintTop_toBottomOf="@+id/ResUser"
             app:startIconDrawable="@drawable/ic_lock"
             app:startIconTint="@color/white"
             app:endIconTint="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ResfPasswordTiet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:imeOptions="actionNext"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ResConfPassword"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColorHint="@color/white"
+            android:hint="@string/Confirmar_contraseña"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ResPassword"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/white"
+            app:endIconTint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ResConfPasswordTiet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -180,7 +184,7 @@
             android:text="@string/Siguiente"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ResPassword"/>
+            app:layout_constraintTop_toBottomOf="@+id/ResConfPassword"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

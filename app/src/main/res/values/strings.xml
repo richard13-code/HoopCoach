@@ -22,8 +22,7 @@
     
     <!-- Pantalla Register -->
     <string name="REGISTRARSE">Registrate para continuar </string>
-    <string name="Nombre_Usuario">Nombre de Usuario</string>"
-    <string name="Correo">Correo</string>
+    <string name="Confirmar_contraseña">Confirmar contraseña</string>"
     <string name="Siguiente">Siguiente</string>
     
     
@@ -42,6 +41,7 @@
     <string name="Recuperar_contraseña">Recuperar contraseña</string>
     <string name="Instrucciones">Introduce tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.</string>
     <string name="EnlaceRecuperacion">Enviar enlace</string>
+    <string name="Correo">Correo electrónico</string>
     <string name="No_recibiste_correo">¿No recibiste el correo?</string>
     <string name="Reenviar">Reenviar</string>
     <string name="desc_logo_llave">Logo de contraseña></string>"

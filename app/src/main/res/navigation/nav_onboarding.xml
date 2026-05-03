@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.hoopcoach.RegisterFragment"
+        android:name="com.example.hoopcoach.signup.RegisterFragment"
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register">
         <action
@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/personalInfoFragment"
-        android:name="com.example.hoopcoach.PersonalInfoFragment"
+        android:name="com.example.hoopcoach.signup.PersonalInfoFragment"
         android:label="PersonalInfoFragment"
         tools:layout="@layout/fragment_personal_info"/>
     <fragment

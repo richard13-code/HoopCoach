@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="280dp"
-        tools:context=".PersonalInfoFragment">
+        tools:context=".signup.PersonalInfoFragment">
 
         <TextView
             android:id="@+id/tvTitleInfo"
@@ -59,6 +59,7 @@
             app:startIconTint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/NameTiet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -86,6 +87,7 @@
             app:startIconTint="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/LastNameTiet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
@@ -113,6 +115,7 @@
             app:startIconTint="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/MiddleNameTiet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
@@ -140,10 +143,10 @@
             app:startIconTint="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneTiet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:imeOptions="actionNext"
                 android:inputType="phone"
                 android:paddingStart="40dp"
                 android:paddingEnd="40dp" />
@@ -167,6 +170,7 @@
             app:startIconTint="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/BirthdayTiet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
