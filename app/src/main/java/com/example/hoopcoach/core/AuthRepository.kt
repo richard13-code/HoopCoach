@@ -40,31 +40,14 @@ class AuthRepository(): Authentication {
             result.user?.let { ResponseService.Success(it) }
                 ?: ResponseService.Error("No se pudo crear el usuario")
         } catch (e: FirebaseAuthUserCollisionException) {
-            ResponseService.Error("Este correo ya esta registrado, intenta con otro")
+            ResponseService.Error("Este correo ya está registrado, intenta con otro")
         } catch (e: FirebaseAuthWeakPasswordException) {
-            ResponseService.Error("La contraseña es muy debil")
+            ResponseService.Error("La contraseña es muy débil")
+        } catch (e: FirebaseAuthException) {
+            // ESTO TE DARÁ LA RAZÓN REAL (Ej: Correo mal formado, error de red, etc.)
+            ResponseService.Error(e.localizedMessage ?: "Error de autenticación")
         } catch (e: Exception) {
-            ResponseService.Error("Error inesperado. Intenta de nuevo")
-        }
-    }
-
-    override suspend fun saveUserProfile(
-        userId: String, name: String, lastName: String,
-        middleName: String, phone: String, birthday: String
-    ): ResponseService<Boolean> = withContext(Dispatchers.IO) {
-        try {
-            val userMap = mapOf(
-                "name" to name,
-                "lastName" to lastName,
-                "middleName" to middleName,
-                "phone" to phone,
-                "birthday" to birthday,
-                "userId" to userId
-            )
-            firestore.collection("users").document(userId).set(userMap).await()
-            ResponseService.Success(true)
-        } catch (e: Exception) {
-            ResponseService.Error(e.localizedMessage ?: "Error al guardar perfil")
+            ResponseService.Error("Error crítico: ${e.message}")
         }
     }
 }

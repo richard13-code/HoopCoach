@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/personalInfoFragment"
-        android:name="com.example.hoopcoach.onboarding.signup.PersonalInfoFragment"
+        android:name="com.example.hoopcoach.onboarding.personal.PersonalInfoFragment"
         android:label="PersonalInfoFragment"
         tools:layout="@layout/fragment_personal_info"/>
     <fragment

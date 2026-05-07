@@ -29,8 +29,8 @@
     <string name="Perfil">Perfil</string>
     <string name="Instrucción">Ingresa tus datos personales</string>
     <string name="Nombre">Nombre(s)</string>
-    <string name="Apellido_P">Apellido Paterno</string>
-    <string name="Apellido_M">Apellido Materno</string>
+    <string name="Apellidos">Apellidos</string>
+    <string name="Usuario">Nombre de usuario</string>
     <string name="Telefono">Teléfono</string>"
     <string name="Fecha_Nacimiento">Fecha de Nacimiento</string>
     <string name="Registrar">Registrar</string>

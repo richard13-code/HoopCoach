@@ -51,17 +51,7 @@ class RegisterViewModel: ViewModel() {
             _registerState.value = ResponseService.Loading
 
             // 1. Intentamos crear el usuario
-            var result = authRepository.requestSignIn(email, password)
-
-            // 2. Si el error es que ya existe, intentamos hacer login
-            if (result is ResponseService.Error && result.error.contains("registrado", ignoreCase = true)) {
-                // Intentamos loguear para ver si el usuario conoce la contraseña
-                val loginResult = authRepository.requestLogin(email, password)
-                if (loginResult is ResponseService.Success) {
-                    // Si el login funciona, tratamos esto como un "éxito" para pasar a la siguiente pantalla
-                    result = ResponseService.Success(loginResult.data)
-                }
-            }
+            val result = authRepository.requestSignIn(email, password)
 
             _registerState.value = result
         }

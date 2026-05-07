@@ -4,13 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.hoopcoach.R
 import com.example.hoopcoach.core.FragmentCommunicator
+import com.example.hoopcoach.core.ResponseService
 import com.example.hoopcoach.databinding.FragmentRegisterBinding
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.launch
 
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
@@ -31,6 +38,7 @@ class RegisterFragment : Fragment() {
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         setupValidation()
         setupClickListeners()
+        observeState()
 
         communicator = requireActivity() as FragmentCommunicator
 
@@ -62,18 +70,53 @@ class RegisterFragment : Fragment() {
 
     private fun setupClickListeners() {
         binding.btnNextRegister.setOnClickListener {
+            // CORRECCIÓN: Obtener el texto del campo de email, no del botón
             val email = binding.ResEmailTiet.text.toString().trim()
             val password = binding.ResfPasswordTiet.text.toString().trim()
-
-            val bundle = Bundle().apply {
-                putString("EMAIL", email)
-                putString("PASSWORD", password)
-            }
-            findNavController().navigate(
-                R.id.action_registerFragment_to_personalInfoFragment,
-                bundle
-            )
+            viewModel.requestSignUp(email, password)
         }
+    }
 
+    private fun observeState() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.registerState.collect { state ->
+                    when (state) {
+                        is ResponseService.Loading -> {
+                            communicator.manageLoader(true)
+                            binding.btnNextRegister.isEnabled = false
+                        }
+
+                        is ResponseService.Success -> {
+                            communicator.manageLoader(false)
+                            
+                            // Pasamos el email y password al siguiente fragmento para completar el registro
+                            val email = binding.ResEmailTiet.text.toString().trim()
+                            val password = binding.ResfPasswordTiet.text.toString().trim()
+                            val bundle = bundleOf(
+                                "EMAIL" to email,
+                                "PASSWORD" to password
+                            )
+
+                            findNavController().navigate(
+                                R.id.action_registerFragment_to_personalInfoFragment,
+                                bundle
+                            )
+                        }
+
+                        is ResponseService.Error -> {
+                            communicator.manageLoader(false)
+                            binding.btnNextRegister.isEnabled = true
+                            Snackbar.make(
+                                binding.root, state.error,
+                                Snackbar.LENGTH_LONG
+                            ).show()
+                        }
+
+                        null -> Unit
+                    }
+                }
+            }
+        }
     }
 }
