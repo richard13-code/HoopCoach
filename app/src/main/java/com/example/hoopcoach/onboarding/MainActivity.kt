@@ -1,4 +1,4 @@
-package com.example.hoopcoach
+package com.example.hoopcoach.onboarding
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import com.example.hoopcoach.R
 import com.example.hoopcoach.core.FragmentCommunicator
 import com.example.hoopcoach.databinding.ActivityMainBinding
 

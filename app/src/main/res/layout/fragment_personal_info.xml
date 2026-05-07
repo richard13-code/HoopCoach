@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="280dp"
-        tools:context=".signup.PersonalInfoFragment">
+        tools:context=".onboarding.signup.PersonalInfoFragment">
 
         <TextView
             android:id="@+id/tvTitleInfo"

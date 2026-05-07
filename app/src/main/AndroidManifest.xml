@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HoopCoach">
         <activity
-            android:name=".MainActivity"
+            android:name=".home.HomeActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".onboarding.MainActivity"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>

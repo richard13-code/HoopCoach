@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/welcomeFragment3"
-        android:name="com.example.hoopcoach.WelcomeFragment"
+        android:name="com.example.hoopcoach.onboarding.WelcomeFragment"
         android:label="WelcomeFragment"
         tools:layout="@layout/fragment_welcome">
         <action
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/loginFragment2"
-        android:name="com.example.hoopcoach.LoginFragment"
+        android:name="com.example.hoopcoach.onboarding.signIn.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.hoopcoach.signup.RegisterFragment"
+        android:name="com.example.hoopcoach.onboarding.signup.RegisterFragment"
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register">
         <action
@@ -41,12 +41,12 @@
     </fragment>
     <fragment
         android:id="@+id/personalInfoFragment"
-        android:name="com.example.hoopcoach.signup.PersonalInfoFragment"
+        android:name="com.example.hoopcoach.onboarding.signup.PersonalInfoFragment"
         android:label="PersonalInfoFragment"
         tools:layout="@layout/fragment_personal_info"/>
     <fragment
         android:id="@+id/passwordFragment"
-        android:name="com.example.hoopcoach.PasswordFragment"
+        android:name="com.example.hoopcoach.onboarding.signIn.PasswordFragment"
         android:label="PasswordFragment"
         tools:layout="@layout/fragment_password"/>/>
 

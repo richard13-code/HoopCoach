@@ -1,4 +1,4 @@
-package com.example.hoopcoach.signup
+package com.example.hoopcoach.onboarding.signup
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

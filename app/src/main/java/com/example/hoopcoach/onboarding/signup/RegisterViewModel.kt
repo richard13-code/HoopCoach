@@ -1,4 +1,4 @@
-package com.example.hoopcoach.signup
+package com.example.hoopcoach.onboarding.signup
 
 import android.util.Patterns
 import androidx.lifecycle.ViewModel

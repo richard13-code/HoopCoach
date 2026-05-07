@@ -1,20 +1,23 @@
-package com.example.hoopcoach
+package com.example.hoopcoach.onboarding.signIn
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.hoopcoach.databinding.FragmentLoginBinding
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.example.hoopcoach.R
 import com.example.hoopcoach.core.FragmentCommunicator
 import com.example.hoopcoach.core.ResponseService
+import com.example.hoopcoach.databinding.FragmentLoginBinding
+import com.example.hoopcoach.home.HomeActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
@@ -90,7 +93,9 @@ class LoginFragment : Fragment() {
                         is ResponseService.Success -> {
                             communicator.manageLoader(false)
                             Toast.makeText(requireContext(), "¡Sesión Iniciada!", Toast.LENGTH_LONG).show()
-                            // TODO: navegar a MainActivity
+                            val intent = Intent(requireContext(), HomeActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intent)
                         }
                         is ResponseService.Error -> {
                             communicator.manageLoader(false)
