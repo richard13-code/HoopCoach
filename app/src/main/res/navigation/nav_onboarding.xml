@@ -48,6 +48,6 @@
         android:id="@+id/passwordFragment"
         android:name="com.example.hoopcoach.onboarding.signIn.PasswordFragment"
         android:label="PasswordFragment"
-        tools:layout="@layout/fragment_password"/>/>
+        tools:layout="@layout/fragment_password"/>
 
 </navigation>

@@ -93,10 +93,10 @@ class RegisterFragment : Fragment() {
                             // Pasamos el email y password al siguiente fragmento para completar el registro
                             val email = binding.ResEmailTiet.text.toString().trim()
                             val password = binding.ResfPasswordTiet.text.toString().trim()
-                            val bundle = bundleOf(
-                                "EMAIL" to email,
-                                "PASSWORD" to password
-                            )
+                            val bundle = Bundle().apply {
+                                putString("EMAIL", email)
+                                putString("PASSWORD", password)
+                            }
 
                             findNavController().navigate(
                                 R.id.action_registerFragment_to_personalInfoFragment,
