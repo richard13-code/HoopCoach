@@ -9,8 +9,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.hoopcoach.R
 import com.example.hoopcoach.databinding.ActivityHomeBinding
 import androidx.activity.enableEdgeToEdge
+import com.example.hoopcoach.core.FragmentCommunicator
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), FragmentCommunicator {
 
     private lateinit var binding: ActivityHomeBinding
 
@@ -34,6 +35,10 @@ class HomeActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
         val navController = navHostFragment.navController
         binding.bottomNavigationView.setupWithNavController(navController)
+    }
+
+    override fun manageLoader(isVisible: Boolean) {
+
     }
 
 }
