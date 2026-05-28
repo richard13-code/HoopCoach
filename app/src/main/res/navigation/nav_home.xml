@@ -6,17 +6,17 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.hoopcoach.home.training.trainingFragment"
+        android:name="com.example.hoopcoach.home.training.TrainingFragment"
         android:label="fragment_training"
         tools:layout="@layout/fragment_training" />
     <fragment
         android:id="@+id/drillsFragment"
-        android:name="com.example.hoopcoach.home.drills.drillsFragment"
+        android:name="com.example.hoopcoach.home.drills.DrillsFragment"
         android:label="fragment_drills"
         tools:layout="@layout/fragment_drills" />
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.example.hoopcoach.home.account.accountFragment"
+        android:name="com.example.hoopcoach.home.account.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
 

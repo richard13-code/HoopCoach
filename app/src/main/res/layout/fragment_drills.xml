@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.drills.drillsFragment"
+    tools:context=".home.drills.DrillsFragment"
     android:background="@color/azul_basket">
 
     <!-- TODO: Update blank fragment layout -->
