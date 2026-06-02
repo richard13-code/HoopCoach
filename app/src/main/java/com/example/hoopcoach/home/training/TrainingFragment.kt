@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hoopcoach.R
 import com.example.hoopcoach.core.FragmentCommunicator
 import com.example.hoopcoach.core.ResponseService
@@ -24,6 +25,10 @@ class TrainingFragment : Fragment() {
     private val viewModel by viewModels<TrainingViewModel>()
     private lateinit var communicator: FragmentCommunicator
 
+    private val adapter = DrillsAdapter{ drill ->
+
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +36,8 @@ class TrainingFragment : Fragment() {
     ): View? {
         _binding = FragmentTrainingBinding.inflate(inflater, container, false)
         communicator = requireActivity() as FragmentCommunicator
+        binding.rvDrills.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvDrills.adapter = adapter
         observeState()
         viewModel.loadDrills()
         return binding.root
@@ -46,7 +53,7 @@ class TrainingFragment : Fragment() {
                         }
                         is ResponseService.Success -> {
                             communicator.manageLoader(false)
-                            Log.i("Drills", "Drills List: ${state.data}")
+                            adapter.submitList(state.data)
                         }
                         is ResponseService.Error -> {
                             communicator.manageLoader(false)

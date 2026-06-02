@@ -9,6 +9,7 @@ data class DrillResponse(
 data class Drill(
     @SerializedName("id") val id: String,
     @SerializedName("title") val title: String,
+    @SerializedName("portada") val cover: String,
     @SerializedName("duration_minutes") val durationMinutes: Int,
     @SerializedName("description") val description: String,
     @SerializedName("category") val category: String, // Ej: "Tiro", "Dribbling", "Defensa"
