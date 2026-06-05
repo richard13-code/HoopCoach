@@ -21,7 +21,7 @@
 
     <!-- Pantalla Register -->
     <string name="REGISTRARSE">Registrate para continuar </string>
-    <string name="Confirmar_contraseña">Confirmar contraseña</string>"
+    <string name="Confirmar_contraseña">Confirmar contraseña</string>
     <string name="Siguiente">Siguiente</string>
 
 
@@ -31,7 +31,7 @@
     <string name="Nombre">Nombre(s)</string>
     <string name="Apellidos">Apellidos</string>
     <string name="Usuario">Nombre de usuario</string>
-    <string name="Telefono">Teléfono</string>"
+    <string name="Telefono">Teléfono</string>
     <string name="Fecha_Nacimiento">Fecha de Nacimiento</string>
     <string name="Registrar">Registrar</string>
 
@@ -46,9 +46,25 @@
 
 
     <!-- Menu Bottom -->
-    <string name="home">Home</string>">
+    <string name="home">Home</string>
+    <string name="Empecemos">Comienza tu entrenamiento</string>
+
+
     <string name="drills">Drills</string>
     <string name="account">Account</string>
+
+    <!-- Pantalla de cuenta -->
+    <string name="my_account">Mi cuenta</string>
+    <string name="user">Usuario</string>
+    <string name="full_name">Nombre completo</string>
+    <string name="items_in_list">Favoritos</string>
+    <string name="saved_titles">Ejercicios guardados</string>
+    <string name="personal_info_header">Información personal</string>
+    <string name="cellphone">Teléfono</string>
+    <string name="tap_to_edit">Toca para editar</string>
+    <string name="settings">Configuración</string>
+    <string name="settings_desc">Notificaciones, seguridad, idioma</string>
+    <string name="logout">Cerrar sesión</string>
 
 
     <string name="hello_blank_fragment">hello_blank_fragment</string>

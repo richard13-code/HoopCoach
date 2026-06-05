@@ -1,11 +1,14 @@
 package com.example.hoopcoach.core.model
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+/*import kotlinx. */
 
 data class DrillResponse(
     @SerializedName("results") val results: List<Drill>
 )
-
+/*@Parcelize*/
 data class Drill(
     @SerializedName("id") val id: String,
     @SerializedName("title") val title: String,
@@ -17,4 +20,3 @@ data class Drill(
     @SerializedName("media_url") val mediaUrl: String, // Para cargar un video o imagen del ejercicio
     @SerializedName("creator_id") val creatorId: String
 )
-

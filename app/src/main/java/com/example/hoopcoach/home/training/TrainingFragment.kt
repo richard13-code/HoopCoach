@@ -10,6 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hoopcoach.R
 import com.example.hoopcoach.core.FragmentCommunicator
@@ -26,6 +28,9 @@ class TrainingFragment : Fragment() {
     private lateinit var communicator: FragmentCommunicator
 
     private val adapter = DrillsAdapter{ drill ->
+
+        /*val bundle = Bundle().apply { putParcelable("drill", drill) }
+        findNavController().navigate(R.id.action_homeFragment_to_drillDetailFragment, bundle)*/
 
     }
 

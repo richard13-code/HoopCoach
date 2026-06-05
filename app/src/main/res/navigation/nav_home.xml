@@ -9,6 +9,7 @@
         android:name="com.example.hoopcoach.home.training.TrainingFragment"
         android:label="fragment_training"
         tools:layout="@layout/fragment_training" />
+
     <fragment
         android:id="@+id/drillsFragment"
         android:name="com.example.hoopcoach.home.drills.DrillsFragment"
@@ -19,6 +20,7 @@
         android:name="com.example.hoopcoach.home.account.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
+
 
 
 </navigation>
