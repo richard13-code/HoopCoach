@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.hoopcoach.R
 import com.example.hoopcoach.databinding.ActivityHomeBinding
 import androidx.activity.enableEdgeToEdge
+import androidx.core.view.isVisible
 import com.example.hoopcoach.core.FragmentCommunicator
 
 class HomeActivity : AppCompatActivity(), FragmentCommunicator {
@@ -38,7 +39,11 @@ class HomeActivity : AppCompatActivity(), FragmentCommunicator {
     }
 
     override fun manageLoader(isVisible: Boolean) {
+        // Implementación del loader si es necesario en HomeActivity
+    }
 
+    override fun manageBottomNavigation(isVisible: Boolean) {
+        binding.bottomNavigationView.isVisible = isVisible
     }
 
 }

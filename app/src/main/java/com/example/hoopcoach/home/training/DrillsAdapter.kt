@@ -7,54 +7,61 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hoopcoach.core.model.Drill
-import com.example.hoopcoach.databinding.ItemDrillBinding
+import com.example.hoopcoach.databinding.ItemDrill2Binding // Cuadros
+import com.example.hoopcoach.databinding.ItemDrillBinding  // Lista lineal
 
 class DrillsAdapter(
+    private val isGrid: Boolean = true, // Por defecto es cuadros
     private val onItemClick: (Drill) -> Unit = {}
-): ListAdapter<Drill, DrillsAdapter.DrillViewHolder>(DIFF){
+): ListAdapter<Drill, RecyclerView.ViewHolder>(DIFF){
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        p1: Int
-    ): DrillViewHolder {
-        val binding = ItemDrillBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return DrillViewHolder(binding)
+    // Definimos qué tipo de vista usar
+    override fun getItemViewType(position: Int): Int {
+        return if (isGrid) VIEW_TYPE_GRID else VIEW_TYPE_LIST
     }
 
-    override fun onBindViewHolder(
-        holder: DrillViewHolder,
-        position: Int
-    ) {
-        holder.bind(getItem(position))
-    }
-
-    inner class DrillViewHolder(
-        private val binding: ItemDrillBinding
-    ): RecyclerView.ViewHolder(binding.root){
-        fun bind(drill: Drill){
-            binding.tvTitle.text = drill.title
-            binding.tvCategory.text = drill.category
-
-            Glide.with(binding.ivCover)
-                .load(drill.cover)
-                .centerCrop()
-                .into(binding.ivCover)
-
-            binding.root.setOnClickListener{
-                onItemClick(drill)
-            }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        return if (viewType == VIEW_TYPE_GRID) {
+            val binding = ItemDrill2Binding.inflate(inflater, parent, false)
+            GridViewHolder(binding)
+        } else {
+            val binding = ItemDrillBinding.inflate(inflater, parent, false)
+            ListViewHolder(binding)
         }
     }
 
-    companion object{
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val drill = getItem(position)
+        if (holder is GridViewHolder) holder.bind(drill)
+        else if (holder is ListViewHolder) holder.bind(drill)
+    }
+
+    // ViewHolder para CUADROS (item_drill2)
+    inner class GridViewHolder(private val binding: ItemDrill2Binding): RecyclerView.ViewHolder(binding.root){
+        fun bind(drill: Drill){
+            binding.tvTitle.text = drill.title
+            Glide.with(binding.ivCover).load(drill.cover).centerCrop().into(binding.ivCover)
+            binding.root.setOnClickListener { onItemClick(drill) }
+        }
+    }
+
+    // ViewHolder para LISTA (item_drill)
+    inner class ListViewHolder(private val binding: ItemDrillBinding): RecyclerView.ViewHolder(binding.root){
+        fun bind(drill: Drill){
+            binding.tvTitle.text = drill.title
+            binding.tvCategory.text = drill.category // La lista sí tiene categoría
+            Glide.with(binding.ivCover).load(drill.cover).centerCrop().into(binding.ivCover)
+            binding.root.setOnClickListener { onItemClick(drill) }
+        }
+    }
+
+    companion object {
+        private const val VIEW_TYPE_GRID = 1
+        private const val VIEW_TYPE_LIST = 2
         private val DIFF = object : DiffUtil.ItemCallback<Drill>(){
-            override fun areItemsTheSame(oldItem: Drill, newItem: Drill) =
-                oldItem.id == newItem.id
-
-            override fun areContentsTheSame(oldItem: Drill, newItem: Drill) =
-                oldItem == newItem
-
+            override fun areItemsTheSame(oldItem: Drill, newItem: Drill) = oldItem.id == newItem.id
+            override fun areContentsTheSame(oldItem: Drill, newItem: Drill) = oldItem == newItem
         }
     }
 }
-

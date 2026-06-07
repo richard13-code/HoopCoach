@@ -1,7 +1,6 @@
 package com.example.hoopcoach.home.training
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hoopcoach.R
 import com.example.hoopcoach.core.FragmentCommunicator
 import com.example.hoopcoach.core.ResponseService
 import com.example.hoopcoach.databinding.FragmentTrainingBinding
@@ -27,7 +23,7 @@ class TrainingFragment : Fragment() {
     private val viewModel by viewModels<TrainingViewModel>()
     private lateinit var communicator: FragmentCommunicator
 
-    private val adapter = DrillsAdapter{ drill ->
+    private val adapter = DrillsAdapter(isGrid = true) { drill ->
 
         /*val bundle = Bundle().apply { putParcelable("drill", drill) }
         findNavController().navigate(R.id.action_homeFragment_to_drillDetailFragment, bundle)*/
@@ -41,7 +37,7 @@ class TrainingFragment : Fragment() {
     ): View? {
         _binding = FragmentTrainingBinding.inflate(inflater, container, false)
         communicator = requireActivity() as FragmentCommunicator
-        binding.rvDrills.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvDrills.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.rvDrills.adapter = adapter
         observeState()
         viewModel.loadDrills()
@@ -58,7 +54,8 @@ class TrainingFragment : Fragment() {
                         }
                         is ResponseService.Success -> {
                             communicator.manageLoader(false)
-                            adapter.submitList(state.data)
+                            // Revolvemos la lista con .shuffled() y tomamos los primeros 8
+                            adapter.submitList(state.data.shuffled().take(8))
                         }
                         is ResponseService.Error -> {
                             communicator.manageLoader(false)
@@ -71,5 +68,3 @@ class TrainingFragment : Fragment() {
         }
     }
 }
-
-
