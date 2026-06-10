@@ -8,19 +8,31 @@
         android:id="@+id/homeFragment"
         android:name="com.example.hoopcoach.home.training.TrainingFragment"
         android:label="fragment_training"
-        tools:layout="@layout/fragment_training" />
+        tools:layout="@layout/fragment_training" >
+        <action
+            android:id="@+id/action_homeFragment_to_drillDetailFragment"
+            app:destination="@id/drillDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/drillsFragment"
         android:name="com.example.hoopcoach.home.drills.DrillsFragment"
         android:label="fragment_drills"
-        tools:layout="@layout/fragment_drills" />
+        tools:layout="@layout/fragment_drills" >
+        <action
+            android:id="@+id/action_drillsFragment_to_drillDetailFragment"
+            app:destination="@id/drillDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.hoopcoach.home.account.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
-
+    <fragment
+        android:id="@+id/drillDetailFragment"
+        android:name="com.example.hoopcoach.home.drillDetail.DrillDetailFragment"
+        android:label="fragment_drill_detail"
+        tools:layout="@layout/fragment_drill_detail" />
 
 
 </navigation>

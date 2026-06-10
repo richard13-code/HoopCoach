@@ -5,28 +5,34 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.hoopcoach.R
 import com.example.hoopcoach.core.FragmentCommunicator
 import com.example.hoopcoach.core.ResponseService
 import com.example.hoopcoach.databinding.FragmentTrainingBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
+import kotlin.getValue
 
 class TrainingFragment : Fragment() {
 
     private var _binding: FragmentTrainingBinding? = null
     private val binding get() = _binding!!
+
+    private val sharedViewModel by activityViewModels<DrillShareViewModel>()
     private val viewModel by viewModels<TrainingViewModel>()
     private lateinit var communicator: FragmentCommunicator
 
     private val adapter = DrillsAdapter(isGrid = true) { drill ->
 
-        /*val bundle = Bundle().apply { putParcelable("drill", drill) }
-        findNavController().navigate(R.id.action_homeFragment_to_drillDetailFragment, bundle)*/
+        sharedViewModel.selectDrill(drill)
+        findNavController().navigate(R.id.action_homeFragment_to_drillDetailFragment)
 
     }
 

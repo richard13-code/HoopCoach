@@ -5,16 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
+import com.example.hoopcoach.R
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hoopcoach.core.FragmentCommunicator
 import com.example.hoopcoach.core.ResponseService
 import com.example.hoopcoach.core.model.Drill
 import com.example.hoopcoach.databinding.FragmentDrillsBinding
+import com.example.hoopcoach.home.training.DrillShareViewModel
 import com.example.hoopcoach.home.training.DrillsAdapter
 import com.example.hoopcoach.home.training.TrainingViewModel
 import com.google.android.material.search.SearchView
@@ -28,16 +32,19 @@ class DrillsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel by viewModels<TrainingViewModel>()
+    private val sharedViewModel by activityViewModels<DrillShareViewModel>()
     private lateinit var communicator: FragmentCommunicator
 
     private var allDrills: List<Drill> = emptyList() // Guardamos la lista completa aquí
 
     private val mainAdapter = DrillsAdapter(isGrid = false) { drill ->
-        /* Detalle */
+        sharedViewModel.selectDrill(drill)
+        findNavController().navigate(R.id.action_drillsFragment_to_drillDetailFragment)
     }
 
     private val searchAdapter = DrillsAdapter(isGrid = true) { drill ->
-        /* Detalle */
+        sharedViewModel.selectDrill(drill)
+        findNavController().navigate(R.id.action_drillsFragment_to_drillDetailFragment)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

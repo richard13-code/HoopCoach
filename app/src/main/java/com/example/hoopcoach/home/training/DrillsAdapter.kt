@@ -50,7 +50,7 @@ class DrillsAdapter(
     inner class ListViewHolder(private val binding: ItemDrillBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(drill: Drill){
             binding.tvTitle.text = drill.title
-            binding.tvCategory.text = drill.category // La lista sí tiene categoría
+            binding.tvDifficulty.text = drill.difficulty
             Glide.with(binding.ivCover).load(drill.cover).centerCrop().into(binding.ivCover)
             binding.root.setOnClickListener { onItemClick(drill) }
         }

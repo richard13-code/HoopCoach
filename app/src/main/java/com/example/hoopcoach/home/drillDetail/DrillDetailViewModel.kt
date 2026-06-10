@@ -1,4 +1,7 @@
 package com.example.hoopcoach.home.drillDetail
 
-class DrillDetailViewModel {
+import androidx.lifecycle.ViewModel
+
+class DrillDetailViewModel : androidx.lifecycle.ViewModel() {
+    // Aquí puedes agregar lógica de favoritos más adelante
 }

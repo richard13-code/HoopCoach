@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="@+id/ivCover" />
 
     <TextView
-        android:id="@+id/tvCategory"
+        android:id="@+id/tvDifficulty"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"

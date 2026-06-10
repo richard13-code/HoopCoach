@@ -72,6 +72,7 @@
     <string name="action_search">Buscar</string>
     <string name="action_settings">Configuración</string>
     <string name="Frase">\"Los campeones se construyen cuando nadie está mirando.\"</string>
+    <string name="BtnClose">Botón de cerrar</string>
 
 
     <string name="hello_blank_fragment">hello_blank_fragment</string>
