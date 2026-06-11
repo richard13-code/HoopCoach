@@ -24,4 +24,23 @@ class UserRepository : UserService {
         }
     }
 
+    override suspend fun getUserInfo(uid: String): ResponseService<UserProfile> = withContext(Dispatchers.IO) {
+        try {
+            val document = userCollection.document(uid).get().await()
+            if (document.exists()) {
+                // Aquí es donde sucede la conversión
+                val userProfile = document.toObject(UserProfile::class.java)
+                if (userProfile != null) {
+                    ResponseService.Success(userProfile)
+                } else {
+                    ResponseService.Error("Error: Los datos no coinciden con el modelo")
+                }
+            } else {
+                ResponseService.Error("No se encontró el documento en Firestore")
+            }
+        } catch (e: Exception) {
+            ResponseService.Error(e.localizedMessage ?: "Error de conexión")
+        }
+    }
+
 }

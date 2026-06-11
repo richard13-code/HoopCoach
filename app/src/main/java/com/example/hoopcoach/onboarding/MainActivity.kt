@@ -30,4 +30,9 @@ class MainActivity : AppCompatActivity(), FragmentCommunicator {
     override fun manageLoader(isVisible: Boolean) {
         binding.loaderView.isVisible = isVisible
     }
+
+    override fun manageBottomNavigation(isVisible: Boolean) {
+        // No hacemos nada aquí porque MainActivity (Onboarding)
+        // no tiene BottomNavigation. Solo HomeActivity lo usa.
+    }
 }

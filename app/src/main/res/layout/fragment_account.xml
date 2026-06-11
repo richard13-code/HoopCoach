@@ -1,14 +1,762 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
-    tools:context=".home.account.accountFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:background="@drawable/background_gradient"
+
+    android:fillViewport="true">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+        android:layout_height="wrap_content"
+
+        android:padding="24dp">
+
+
+
+        <TextView
+
+            android:id="@+id/tvTitle"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:text="@string/my_account"
+
+            android:textColor="@color/white"
+
+            android:textSize="24sp"
+
+            android:textStyle="bold"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <com.google.android.material.card.MaterialCardView
+
+            android:id="@+id/cardAvatar"
+
+            android:layout_width="120dp"
+
+            android:layout_height="120dp"
+
+            android:layout_marginTop="32dp"
+
+            app:cardBackgroundColor="#E8E0FF"
+
+            app:cardCornerRadius="60dp"
+
+            app:cardElevation="0dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+
+
+            <TextView
+
+                android:id="@+id/tvAvatarInitial"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+
+                android:gravity="center"
+
+                android:text="U"
+
+                android:textColor="#7C4DFF"
+
+                android:textSize="48sp"
+
+                android:textStyle="bold" />
+
+
+
+            <ImageView
+
+                android:id="@+id/imgAvatar"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+
+                android:scaleType="centerCrop"
+
+                android:visibility="gone" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+            android:id="@+id/btnEditPhoto"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:layout_marginEnd="-8dp"
+
+            android:layout_marginBottom="-8dp"
+
+            app:backgroundTint="#7C4DFF"
+
+            app:fabSize="mini"
+
+            app:layout_constraintBottom_toBottomOf="@id/cardAvatar"
+
+            app:layout_constraintEnd_toEndOf="@id/cardAvatar"
+
+            app:srcCompat="@android:drawable/ic_menu_camera"
+
+            app:tint="@color/white" />
+
+
+
+        <TextView
+
+            android:id="@+id/tvUserName"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="16dp"
+
+            android:text="@string/user"
+
+            android:textColor="@color/white"
+
+            android:textSize="20sp"
+
+            android:textStyle="bold"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/cardAvatar" />
+
+
+
+        <TextView
+
+            android:id="@+id/tvUserEmail"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:text="correo@ejemplo.com"
+
+            android:textColor="@color/white"
+
+            android:textSize="14sp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/tvUserName" />
+
+
+
+        <com.google.android.material.card.MaterialCardView
+
+            android:id="@+id/cardStats"
+
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="32dp"
+
+            app:cardBackgroundColor="#F3EFFF"
+
+            app:cardCornerRadius="16dp"
+
+            app:cardElevation="0dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/tvUserEmail">
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:background="#C9B2F6"
+
+                android:padding="16dp">
+
+
+
+                <com.google.android.material.card.MaterialCardView
+
+                    android:id="@+id/cardIcon"
+
+                    android:layout_width="48dp"
+
+                    android:layout_height="48dp"
+
+                    app:cardBackgroundColor="#7C4DFF"
+
+                    app:cardCornerRadius="24dp"
+
+                    app:cardElevation="0dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+
+                    <ImageView
+
+                        android:layout_width="24dp"
+
+                        android:layout_height="24dp"
+
+                        android:layout_gravity="center"
+
+                        app:srcCompat="@android:drawable/btn_star_big_on"
+
+                        app:tint="@color/white" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+
+                <TextView
+
+                    android:id="@+id/tvStatTitle"
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="16dp"
+
+                    android:text="@string/items_in_list"
+
+                    android:textColor="#7C4DFF"
+
+                    android:textSize="16sp"
+
+                    android:textStyle="bold"
+
+                    app:layout_constraintStart_toEndOf="@id/cardIcon"
+
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                <TextView
+
+                    android:id="@+id/tvStatValue"
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:text="0"
+
+                    android:textColor="@color/black"
+
+                    android:textSize="24sp"
+
+                    android:textStyle="bold"
+
+                    app:layout_constraintStart_toStartOf="@id/tvStatTitle"
+
+                    app:layout_constraintTop_toBottomOf="@id/tvStatTitle" />
+
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="8dp"
+
+                    android:text="@string/saved_titles"
+
+                    android:textColor="#757575"
+
+                    android:textSize="14sp"
+
+                    app:layout_constraintBottom_toBottomOf="@id/tvStatValue"
+
+                    app:layout_constraintStart_toEndOf="@id/tvStatValue"
+
+                    app:layout_constraintTop_toTopOf="@id/tvStatValue" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <TextView
+
+            android:id="@+id/tvInfoHeader"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="24dp"
+
+            android:text="@string/personal_info_header"
+
+            android:textColor="@color/white"
+
+            android:textSize="12sp"
+
+            android:textStyle="bold"
+
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/cardStats" />
+
+
+
+        <com.google.android.material.card.MaterialCardView
+
+            android:id="@+id/cardPersonalInfo"
+
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="8dp"
+
+            app:cardBackgroundColor="@color/white"
+
+            app:cardCornerRadius="16dp"
+
+            app:cardElevation="2dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/tvInfoHeader"
+
+            app:strokeColor="#F5F5F5"
+
+            app:strokeWidth="1dp">
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:padding="16dp">
+
+
+
+                <TextView
+
+                    android:id="@+id/labelFullName"
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/full_name"
+
+                    android:textColor="#716E6E"
+
+                    android:textSize="12sp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                <TextView
+
+                    android:id="@+id/tvDisplayFullName"
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:text="-"
+
+                    android:textColor="@color/black"
+
+                    android:textSize="16sp"
+
+                    android:textStyle="bold"
+
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:layout_constraintTop_toBottomOf="@id/labelFullName" />
+
+
+
+                <View
+
+                    android:id="@+id/dividerInfo"
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="1dp"
+
+                    android:layout_marginTop="12dp"
+
+                    android:background="#F5F5F5"
+
+                    app:layout_constraintTop_toBottomOf="@id/tvDisplayFullName" />
+
+
+
+                <TextView
+
+                    android:id="@+id/labelCell"
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="12dp"
+
+                    android:text="@string/cellphone"
+
+                    android:textColor="#BDBDBD"
+
+                    android:textSize="12sp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:layout_constraintTop_toBottomOf="@id/dividerInfo" />
+
+
+
+                <TextView
+
+                    android:id="@+id/tvDisplayPhone"
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:text="-"
+
+                    android:textColor="@color/black"
+
+                    android:textSize="16sp"
+
+                    android:textStyle="bold"
+
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:layout_constraintTop_toBottomOf="@id/labelCell" />
+
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="8dp"
+
+                    android:text="@string/tap_to_edit"
+
+                    android:textColor="#BDBDBD"
+
+                    android:textSize="11sp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:layout_constraintTop_toBottomOf="@id/tvDisplayPhone" />
+
+
+
+                <ImageView
+
+                    android:layout_width="24dp"
+
+                    android:layout_height="24dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    app:srcCompat="@drawable/ic_arrow_back"
+
+                    app:tint="#BDBDBD" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <com.google.android.material.card.MaterialCardView
+
+            android:id="@+id/btnConfiguracion"
+
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="16dp"
+
+            app:cardBackgroundColor="@color/white"
+
+            app:cardCornerRadius="16dp"
+
+            app:cardElevation="2dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/cardPersonalInfo"
+
+            app:strokeColor="#F5F5F5"
+
+            app:strokeWidth="1dp">
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:padding="16dp">
+
+
+
+                <ImageView
+
+                    android:id="@+id/iconSettings"
+
+                    android:layout_width="32dp"
+
+                    android:layout_height="32dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    app:srcCompat="@android:drawable/ic_menu_manage"
+
+                    app:tint="#7C4DFF" />
+
+
+
+                <TextView
+
+                    android:id="@+id/tvSettingsTitle"
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="16dp"
+
+                    android:text="@string/settings"
+
+                    android:textColor="@color/black"
+
+                    android:textSize="16sp"
+
+                    android:textStyle="bold"
+
+                    app:layout_constraintStart_toEndOf="@id/iconSettings"
+
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/settings_desc"
+
+                    android:textColor="#BDBDBD"
+
+                    android:textSize="12sp"
+
+                    app:layout_constraintStart_toStartOf="@id/tvSettingsTitle"
+
+                    app:layout_constraintTop_toBottomOf="@id/tvSettingsTitle" />
+
+
+
+                <ImageView
+
+                    android:layout_width="24dp"
+
+                    android:layout_height="24dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    app:srcCompat="@drawable/ic_arrow_back"
+
+                    app:tint="#BDBDBD" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <com.google.android.material.card.MaterialCardView
+
+            android:id="@+id/btnCerrarSesion"
+
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="16dp"
+
+            android:layout_marginBottom="32dp"
+
+            app:cardBackgroundColor="#FFEBEE"
+
+            app:cardCornerRadius="16dp"
+
+            app:cardElevation="0dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/btnConfiguracion"
+
+            app:strokeColor="#FFCDD2"
+
+            app:strokeWidth="1dp">
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:padding="16dp">
+
+
+
+                <ImageView
+
+                    android:id="@+id/iconLogout"
+
+                    android:layout_width="32dp"
+
+                    android:layout_height="32dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    app:srcCompat="@android:drawable/ic_lock_power_off"
+
+                    app:tint="#D32F2F" />
+
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="16dp"
+
+                    android:text="@string/logout"
+
+                    android:textColor="#D32F2F"
+
+                    android:textSize="16sp"
+
+                    android:textStyle="bold"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintStart_toEndOf="@id/iconLogout"
+
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
